@@ -1,15 +1,23 @@
 /*** General ***/
-html, body {
+html,
+body {
   overflow: visible;
+  color: #eee;
+  background: #333;
 }
-a, button, tr, select, input, label {
+a,
+button,
+tr,
+select,
+input,
+label {
   -webkit-tap-highlight-color: transparent;
 }
 div input {
   margin: 0px;
 }
 select {
-  width:auto;
+  width: auto;
 }
 .hiddenPath {
   display: none;
@@ -17,46 +25,63 @@ select {
 .table {
   margin-bottom: 0;
 }
+.table-striped > tbody > tr:nth-of-type(odd) {
+  background-color: #282828;
+}
+.table > tbody > tr > td,
+.table > tbody > tr > th,
+.table > tfoot > tr > td,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > thead > tr > th {
+  border-top: 1px solid #555;
+}
 #torrentsList .table {
   table-layout: fixed;
 }
 .tableFixHead {
   overflow-y: auto;
   margin-bottom: 0;
+  border: 0px solid #555;
 }
 .tableFixHead th {
   position: sticky;
   position: -webkit-sticky;
   top: 0;
-  background: #eee;
+  background: #282828;
 }
 .icon-white {
-  color: white;
+  color: #428bca;
 }
 .icon-black {
-  color: black;
+  color: #428bca;
 }
-a:hover, a:focus {
+a:hover,
+a:focus {
   color: #428bca;
   outline: none;
   text-decoration: none;
 }
 #mainContainer {
-  background-color: #fff;
+  background-color: #333;
   padding: 39px 3px 51px 3px;
   margin: 0;
 }
 .progress .progress-bar {
   white-space: nowrap;
-  text-shadow:1px 1px 3px #000
+  text-shadow: 1px 1px 3px #000;
 }
-h5, #detailsTrackersPage a, #detailsFilesPage a, #detailsDetailsPage #label td, .nav a, #getDirList td {
-  word-break:break-all;
+h5,
+#detailsTrackersPage a,
+#detailsFilesPage a,
+#detailsDetailsPage #label td,
+.nav a,
+#getDirList td {
+  word-break: break-all;
 }
 #torrentsList #list span {
   font-size: 12px;
 }
-
 
 /*** navbar bottom ***/
 .navbar .nav > li {
@@ -66,7 +91,9 @@ h5, #detailsTrackersPage a, #detailsFilesPage a, #detailsDetailsPage #label td, 
 .navbar .nav > li:last-child {
   margin-right: 0px;
 }
-.navbar .nav > li > a, .navbar .nav > li > a:hover, .navbar .nav > li > a:focus {
+.navbar .nav > li > a,
+.navbar .nav > li > a:hover,
+.navbar .nav > li > a:focus {
   display: table-cell;
   vertical-align: middle;
   padding: 0;
@@ -76,9 +103,10 @@ h5, #detailsTrackersPage a, #detailsFilesPage a, #detailsDetailsPage #label td, 
 }
 .navbar .nav > li > div > span {
   position: relative;
-  top: -2px;
+  top: -3px;
+  left: 3px;
   font-size: 70%;
-  color: #fff;
+  color: #eee;
   line-height: 0;
 }
 .navbar .nav > li > div > i {
@@ -92,11 +120,35 @@ h5, #detailsTrackersPage a, #detailsFilesPage a, #detailsDetailsPage #label td, 
   border-left: 1px solid #111111;
 }
 
-
 /*** navtabs top ***/
 .nav-tabs {
-  background-color: #fff;
+  background-color: #333;
   padding: 3px 3px 0 3px;
+}
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:focus,
+.nav-tabs > li.active > a:hover {
+  color: #518ec2;
+  background-color: #282828;
+  border: 1px solid #337ab7;
+}
+.dropdown-menu {
+  background-color: #333;
+}
+.dropdown-menu > li > a {
+  color: #eee;
+}
+.dropdown-menu.pull-right {
+  right: auto;
+  left: auto;
+}
+.nav-tabs .dropdown-menu {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  width: 200px !important;
+}
+.nav-tabs > li > a {
+  border-radius: 8px 8px 0 0;
 }
 #torrentsList .nav {
   white-space: nowrap;
@@ -104,6 +156,7 @@ h5, #detailsTrackersPage a, #detailsFilesPage a, #detailsDetailsPage #label td, 
 }
 #torrentsList .nav > li > a {
   margin-right: 1px;
+  font-size: 14px;
 }
 #torrentsList .nav > li > a > span {
   float: left;
@@ -121,7 +174,8 @@ h5, #detailsTrackersPage a, #detailsFilesPage a, #detailsDetailsPage #label td, 
   background-color: #999 !important;
   border-color: #999 !important;
 }
-.nav-tabs > li > a:hover, .nav-tabs > li > a:focus {
+.nav-tabs > li > a:hover,
+.nav-tabs > li > a:focus {
   background-color: transparent;
   border-color: transparent;
 }
@@ -137,10 +191,17 @@ h5, #detailsTrackersPage a, #detailsFilesPage a, #detailsDetailsPage #label td, 
 .nav-tabs #refresh #refreshIcon i {
   color: #428bca;
 }
-
+.form-control {
+  color: #eee;
+  background-color: #282828;
+  border: 1px solid #555;
+  border-radius: 8px;
+}
 
 /*** Torrent Details ***/
-#torrentDetailsHeader, #detailsTrackersPage, #detailsFilesPage {
+#torrentDetailsHeader,
+#detailsTrackersPage,
+#detailsFilesPage {
   padding-top: 9px;
   padding-left: 8px;
   padding-right: 8px;
@@ -149,7 +210,7 @@ h5, #detailsTrackersPage a, #detailsFilesPage a, #detailsDetailsPage #label td, 
   white-space: nowrap;
 }
 #torrentDetails #detailsDetailsPage tr td:last-child {
- word-break: break-all; 
+  word-break: break-all;
 }
 #torrentDetails #detailsDetailsPage #label input {
   display: inline;
@@ -164,11 +225,51 @@ h5, #detailsTrackersPage a, #detailsFilesPage a, #detailsDetailsPage #label td, 
 #torrentDetails #detailsFilesPage > div a {
   display: block;
   padding-top: 4px;
+  margin-bottom: 8px;
 }
 #torrentDetails #detailsFilesPage button {
   margin-left: 4px;
 }
-
+.btn-default {
+  color: #eee;
+  background-color: #333;
+  border-color: #555;
+}
+.btn-default.active,
+.btn-default:active,
+.open > .dropdown-toggle.btn-default .btn-default.active.focus,
+.btn-default.active:focus,
+.btn-default.active:hover,
+.btn-default:active.focus,
+.btn-default:active:focus,
+.btn-default:active:hover,
+.btn-default:hover,
+.open > .dropdown-toggle.btn-default.focus,
+.open > .dropdown-toggle.btn-default:focus,
+.open > .dropdown-toggle.btn-default:hover {
+  color: #eee;
+  background-color: #428bca;
+  border-color: #555;
+}
+button,
+input,
+optgroup,
+select,
+textarea {
+  background-color: #282828;
+}
+.panel-default > .panel-heading {
+  background-color: #282828;
+}
+.panel-group .panel-heading + .panel-collapse > .list-group,
+.panel-group .panel-heading + .panel-collapse > .panel-body {
+  border-top: 0px solid #555;
+  background: #333;
+}
+.panel-group .panel {
+  border-radius: 8px;
+  border: 2px solid #282828;
+}
 
 /*** Add Torrent ***/
 #addTorrent {
@@ -177,7 +278,6 @@ h5, #detailsTrackersPage a, #detailsFilesPage a, #detailsDetailsPage #label td, 
 #addTorrent #showGetDir {
   height: 34px;
 }
-
 
 /*** Get Dir List ***/
 #getDirList {
@@ -200,12 +300,10 @@ h5, #detailsTrackersPage a, #detailsFilesPage a, #detailsDetailsPage #label td, 
   margin-top: -20px;
 }
 
-
 /*** Global Settings ***/
 #globalSettings {
   margin-top: -20px;
 }
-
 
 /*** Confirm Delete ***/
 #confimTorrentDelete #confirmText {
