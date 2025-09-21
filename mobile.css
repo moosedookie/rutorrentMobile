@@ -82,6 +82,10 @@ h5,
 #torrentsList #list span {
   font-size: 12px;
 }
+.label-info {
+  float: right;
+  font-size: 10px;
+}
 
 /*** navbar bottom ***/
 .navbar .nav > li {
