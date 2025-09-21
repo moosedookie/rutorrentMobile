@@ -779,7 +779,7 @@ plugin.drawFiles = function(p) {
       '<tr><td>' + theUILang.Size + '</td><td>' + theConverter.bytes(dir.container[name].size) + '</td></tr>' +
       '</tbody></table></div>';
     }
-    filesHtml += '<select class="prioritySelect" style="display:none;">' +
+    filesHtml += '<select class="form-control prioritySelect" style="display:none;">' +
     '<option disabled ' + ((dir.container[name].priority == -1) ? 'selected' : '') + '></option>' +
     '<option value="2" ' + ((dir.container[name].priority == 2) ? 'selected' : '') + '>' + theUILang.High_priority + '</option>' +
     '<option value="1" ' + ((dir.container[name].priority == 1) ? 'selected' : '') + '>' + theUILang.Normal_priority + '</option>' +
@@ -932,7 +932,7 @@ plugin.chooseGetDir = function(path) {
 
 plugin.drawGetDir = function(path, first) {
   $.ajax({
-    url: 'plugins/_getdir/getdirs.php',
+    url: 'plugins/_getdir/listdir.php',
     data: {
       'btn': '',
       'edit': '',
@@ -947,16 +947,13 @@ plugin.drawGetDir = function(path, first) {
 
       var html = '<table class="table table-striped"><tbody>'
 
-      while ((match = re.exec(data)) != null) {
-        if (match[2] == '.') {
-          html = '<h5>' + decodeURIComponent(match[1]) + '</h5>' +
-          '<button class="btn btn-primary" onclick="mobile.chooseGetDir(\'' + decodeURIComponent(match[1]) + '\');">' + theUILang.ok + '</button>' +
-          '<button class="btn btn-default" onclick="history.go(-1);">' + theUILang.Cancel + '</button>' +
-          html;
-        } else {
-          html += '<tr onclick="mobile.drawGetDir(\'' + decodeURIComponent(match[1]) + '\');">' +
-          '<td><i class="glyphicon glyphicon-folder-open icon-black"></i> ' + match[2] + '</td></tr>';
-        }
+      html = '<h6>' + decodeURIComponent(data.path) + '</h6>' +
+        '<button class="btn btn-primary" onclick="mobile.chooseGetDir(\'' + decodeURIComponent(data.path) + '\');">' + theUILang.ok + '</button>' +
+        '<button class="btn btn-default" onclick="history.go(-1);">' + theUILang.Cancel + '</button>' +
+        html;
+      for (const dir of data.directories) {
+        html += '<tr onclick="mobile.drawGetDir(\'' + decodeURIComponent(data.path+dir) + '\');">' +
+        '<td><i class="glyphicon glyphicon-folder-open icon-black" style="margin-right: 8px;"></i>' + dir + '</td></tr>';
       }
 
       html += '</tbody></table>';
@@ -1003,7 +1000,7 @@ plugin.updateTrackerDropdown = function () {
 plugin.loadRatio = function () {
   var ratio = thePlugins.get("ratio");
   if (ratio.allStuffLoaded) {
-    $('#priority').after('<tr id="ratiogrp"><td></td><td><select id="torrentRatioGrp"></select></td></tr>');
+    $('#priority').after('<tr id="ratiogrp"><td></td><td><select id="torrentRatioGrp" class="form-control"></select></td></tr>');
     $('#torrentRatioGrp').change(function(){mobile.changeRatioGrp()});
     var ratioHTML = '<option value="-1">' + theUILang.mnuRatioUnlimited + '</option>'
     $.each(theWebUI.ratios, function(i, v) {
